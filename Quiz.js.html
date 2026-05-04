@@ -69,6 +69,7 @@
       </div>
 
       <div id="explanation"></div>
+      <button id="reset-btn" type="reset">Reset</button>
     </main>
 
     <script type="text/javascript">
@@ -79,6 +80,7 @@
       const optionButtons = document.querySelectorAll("#options button");
       // explanation should be the "explanation" div
       const explanation = document.getElementById("explanation");
+      const resetBtn = document.getElementById("reset-btn");
 
       // TODO 2: Declare & assign a variable called fact
       // Its value should be an object with a statement, true/false answer, and explanation
@@ -123,8 +125,18 @@
           } else {
             optionButtons[i].classList.add("incorrect");
           }
+          enable(resetBtn);
         });
       }
+
+      resetBtn.addEventListener("click", () => {
+        for (let i = 0; i < optionButtons.length; i++) {
+          enable(optionButtons[i]);
+          optionButtons[i].classList.remove("correct", "incorrect");
+        }
+        explanation.textContent = "";
+        disable(resetBtn);
+      });
     </script>
   </body>
 </html>
