@@ -123,8 +123,7 @@
           // Get the guessed value from the clicked button
           // Use a conditional to compare the guess to the fact's answer
           // and add the "correct"/"incorrect" class as appropriate
-          const clickedAnswer = optionButtons[i].value;
-          if (isCorrect(clickedAnswer)) {
+          if (isCorrect(optionButtons[i].value)) {
             optionButtons[i].classList.add("correct");
           } else {
             optionButtons[i].classList.add("incorrect");
